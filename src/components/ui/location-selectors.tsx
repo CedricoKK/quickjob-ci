@@ -50,7 +50,7 @@ export const LocationSelectors: React.FC<LocationSelectorsProps> = ({
           </SelectTrigger>
           <SelectContent className="bg-background border border-border shadow-lg z-[9999] max-h-60 overflow-y-auto">
             {citiesData.map((city) => (
-              <SelectItem key={city.name} value={city.name}>
+              <SelectItem key={city.name} value={city.name} className="cursor-pointer hover:bg-muted">
                 {city.name}
               </SelectItem>
             ))}
@@ -69,9 +69,9 @@ export const LocationSelectors: React.FC<LocationSelectorsProps> = ({
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Sélectionnez votre commune" />
           </SelectTrigger>
-          <SelectContent className="bg-background border border-border shadow-lg z-[9998] max-h-60 overflow-y-auto">
+          <SelectContent className="bg-background border border-border shadow-lg z-[9999] max-h-60 overflow-y-auto">
             {communes.map((commune) => (
-              <SelectItem key={commune.name} value={commune.name}>
+              <SelectItem key={commune.name} value={commune.name} className="cursor-pointer hover:bg-muted">
                 {commune.name}
               </SelectItem>
             ))}
@@ -90,9 +90,9 @@ export const LocationSelectors: React.FC<LocationSelectorsProps> = ({
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Sélectionnez votre quartier" />
           </SelectTrigger>
-          <SelectContent className="bg-background border border-border shadow-lg z-[9997] max-h-60 overflow-y-auto">
+          <SelectContent className="bg-background border border-border shadow-lg z-[9999] max-h-60 overflow-y-auto">
             {quartiers.map((quartier) => (
-              <SelectItem key={quartier.name} value={quartier.name}>
+              <SelectItem key={quartier.name} value={quartier.name} className="cursor-pointer hover:bg-muted">
                 {quartier.name}
               </SelectItem>
             ))}
