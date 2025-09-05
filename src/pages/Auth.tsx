@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LocationSelectors } from '@/components/ui/location-selectors';
 import { ArrowLeft, Mail, Lock, User as UserIcon, Loader2 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 import type { User } from '@supabase/supabase-js';
@@ -14,6 +14,7 @@ import type { User } from '@supabase/supabase-js';
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -249,7 +250,7 @@ const Auth = () => {
           </CardHeader>
           
           <CardContent>
-            <Tabs defaultValue="login" className="w-full">
+            <Tabs defaultValue={searchParams.get('mode') === 'signup' ? 'signup' : 'login'} className="w-full">
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="login">Connexion</TabsTrigger>
                 <TabsTrigger value="signup">Inscription</TabsTrigger>

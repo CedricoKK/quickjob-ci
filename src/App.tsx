@@ -11,6 +11,11 @@ import Chatbot from "./pages/Chatbot";
 import Paystack from "./pages/Paystack";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Inscription from "./pages/Inscription";
+import Connexion from "./pages/Connexion";
+import TrouverUnJob from "./pages/TrouverUnJob";
+import PosterUnJob from "./pages/PosterUnJob";
+import Abonnement from "./pages/Abonnement";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +28,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/trouver-un-job" element={<TrouverUnJob />} />
+          <Route path="/inscription" element={<Inscription />} />
+          <Route path="/connexion" element={<Connexion />} />
+          <Route path="/poster-un-job" element={<PosterUnJob />} />
+          <Route path="/abonnement" element={<Abonnement />} />
           <Route path="/assistant-ia" element={<AssistantIA />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/chatbot" element={<Chatbot />} />

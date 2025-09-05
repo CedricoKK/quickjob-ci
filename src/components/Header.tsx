@@ -12,9 +12,10 @@ const Header = () => {
   const { toast } = useToast();
 
   const navigation = [
-    { name: 'Accueil', href: '#home' },
-    { name: 'Emplois', href: '/jobs' },
-    { name: 'Tarifs', href: '#pricing' },
+    { name: 'Accueil', href: '/' },
+    { name: 'Trouver un job', href: '/trouver-un-job' },
+    { name: 'Poster un job', href: '/poster-un-job' },
+    { name: 'Abonnement', href: '/abonnement' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -69,13 +70,23 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -83,9 +94,12 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-3">
             {user ? (
               <>
-                <span className="text-sm text-muted-foreground">
-                  Bonjour, {user.user_metadata?.full_name || user.email}
-                </span>
+                <Link to="/dashboard">
+                  <Button variant="ghost" size="sm">
+                    <User className="w-4 h-4 mr-2" />
+                    Tableau de bord
+                  </Button>
+                </Link>
                 <Button variant="ghost" size="sm" onClick={handleLogout}>
                   <LogOut className="w-4 h-4 mr-2" />
                   Déconnexion
@@ -93,13 +107,13 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link to="/auth">
+                <Link to="/connexion">
                   <Button variant="ghost" size="sm">
                     <LogIn className="w-4 h-4 mr-2" />
                     Connexion
                   </Button>
                 </Link>
-                <Link to="/auth">
+                <Link to="/inscription">
                   <Button variant="hero" size="sm">
                     <User className="w-4 h-4 mr-2" />
                     S'inscrire
@@ -125,14 +139,25 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border/20">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith('#') ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
                <div className="flex flex-col gap-3 pt-4 border-t border-border/20">
                 {user ? (
@@ -140,6 +165,12 @@ const Header = () => {
                     <div className="text-sm text-muted-foreground px-2">
                       Bonjour, {user.user_metadata?.full_name || user.email}
                     </div>
+                    <Link to="/dashboard">
+                      <Button variant="ghost" size="sm" className="justify-start w-full" onClick={() => setIsMenuOpen(false)}>
+                        <User className="w-4 h-4 mr-2" />
+                        Tableau de bord
+                      </Button>
+                    </Link>
                     <Button variant="ghost" size="sm" className="justify-start" onClick={handleLogout}>
                       <LogOut className="w-4 h-4 mr-2" />
                       Déconnexion
@@ -147,14 +178,14 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <Link to="/auth">
-                      <Button variant="ghost" size="sm" className="justify-start w-full">
+                    <Link to="/connexion">
+                      <Button variant="ghost" size="sm" className="justify-start w-full" onClick={() => setIsMenuOpen(false)}>
                         <LogIn className="w-4 h-4 mr-2" />
                         Connexion
                       </Button>
                     </Link>
-                    <Link to="/auth">
-                      <Button variant="hero" size="sm" className="justify-start w-full">
+                    <Link to="/inscription">
+                      <Button variant="hero" size="sm" className="justify-start w-full" onClick={() => setIsMenuOpen(false)}>
                         <User className="w-4 h-4 mr-2" />
                         S'inscrire
                       </Button>
