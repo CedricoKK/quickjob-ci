@@ -27,6 +27,9 @@ const Auth = () => {
     password: '',
     confirmPassword: '',
     fullName: '',
+    phone: '',
+    whatsapp: '',
+    city: '',
     role: 'candidate'
   });
 
@@ -148,7 +151,10 @@ const Auth = () => {
           emailRedirectTo: redirectUrl,
           data: {
             full_name: signupData.fullName,
-            role: 'candidate'
+            phone: signupData.phone,
+            whatsapp: signupData.whatsapp,
+            city: signupData.city,
+            role: signupData.role
           }
         }
       });
@@ -181,6 +187,9 @@ const Auth = () => {
         password: '',
         confirmPassword: '',
         fullName: '',
+        phone: '',
+        whatsapp: '',
+        city: '',
         role: 'candidate'
       });
 
@@ -305,10 +314,58 @@ const Auth = () => {
                         type="text"
                         placeholder="Votre nom complet"
                         value={signupData.fullName}
-                        onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value, role: signupData.role })}
+                        onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
                         className="pl-10"
                         disabled={isLoading}
                         required
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-phone">Téléphone</Label>
+                    <div className="relative">
+                      <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                      <Input
+                        id="signup-phone"
+                        type="tel"
+                        placeholder="+225 07 XX XX XX XX"
+                        value={signupData.phone}
+                        onChange={(e) => setSignupData({ ...signupData, phone: e.target.value })}
+                        className="pl-10"
+                        disabled={isLoading}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-whatsapp">WhatsApp</Label>
+                    <div className="relative">
+                      <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                      <Input
+                        id="signup-whatsapp"
+                        type="tel"
+                        placeholder="+225 07 XX XX XX XX"
+                        value={signupData.whatsapp}
+                        onChange={(e) => setSignupData({ ...signupData, whatsapp: e.target.value })}
+                        className="pl-10"
+                        disabled={isLoading}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-city">Localisation</Label>
+                    <div className="relative">
+                      <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                      <Input
+                        id="signup-city"
+                        type="text"
+                        placeholder="Sélectionnez votre ville"
+                        value={signupData.city}
+                        onChange={(e) => setSignupData({ ...signupData, city: e.target.value })}
+                        className="pl-10"
+                        disabled={isLoading}
                       />
                     </div>
                   </div>
@@ -350,7 +407,7 @@ const Auth = () => {
                         type="email"
                         placeholder="votre@email.com"
                         value={signupData.email}
-                        onChange={(e) => setSignupData({ ...signupData, email: e.target.value, role: signupData.role })}
+                        onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
                         className="pl-10"
                         disabled={isLoading}
                         required
@@ -367,7 +424,7 @@ const Auth = () => {
                         type="password"
                         placeholder="••••••••"
                         value={signupData.password}
-                        onChange={(e) => setSignupData({ ...signupData, password: e.target.value, role: signupData.role })}
+                        onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
                         className="pl-10"
                         disabled={isLoading}
                         required
@@ -384,7 +441,7 @@ const Auth = () => {
                         type="password"
                         placeholder="••••••••"
                         value={signupData.confirmPassword}
-                        onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value, role: signupData.role })}
+                        onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value })}
                         className="pl-10"
                         disabled={isLoading}
                         required
