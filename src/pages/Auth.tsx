@@ -26,7 +26,8 @@ const Auth = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    fullName: ''
+    fullName: '',
+    role: 'candidate'
   });
 
   // Check if user is already authenticated
@@ -179,7 +180,8 @@ const Auth = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        fullName: ''
+        fullName: '',
+        role: 'candidate'
       });
 
     } catch (error) {
@@ -303,11 +305,39 @@ const Auth = () => {
                         type="text"
                         placeholder="Votre nom complet"
                         value={signupData.fullName}
-                        onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
+                        onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value, role: signupData.role })}
                         className="pl-10"
                         disabled={isLoading}
                         required
                       />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label>Type de compte</Label>
+                    <div className="flex gap-4">
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input 
+                          type="radio" 
+                          name="role" 
+                          value="candidate" 
+                          checked={signupData.role === 'candidate'}
+                          onChange={(e) => setSignupData({ ...signupData, role: e.target.value })}
+                          className="text-primary"
+                        />
+                        <span>Candidat (Gratuit)</span>
+                      </label>
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input 
+                          type="radio" 
+                          name="role" 
+                          value="recruiter" 
+                          checked={signupData.role === 'recruiter'}
+                          onChange={(e) => setSignupData({ ...signupData, role: e.target.value })}
+                          className="text-primary"
+                        />
+                        <span>Recruteur</span>
+                      </label>
                     </div>
                   </div>
                   
@@ -320,7 +350,7 @@ const Auth = () => {
                         type="email"
                         placeholder="votre@email.com"
                         value={signupData.email}
-                        onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                        onChange={(e) => setSignupData({ ...signupData, email: e.target.value, role: signupData.role })}
                         className="pl-10"
                         disabled={isLoading}
                         required
@@ -337,7 +367,7 @@ const Auth = () => {
                         type="password"
                         placeholder="••••••••"
                         value={signupData.password}
-                        onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+                        onChange={(e) => setSignupData({ ...signupData, password: e.target.value, role: signupData.role })}
                         className="pl-10"
                         disabled={isLoading}
                         required
@@ -354,7 +384,7 @@ const Auth = () => {
                         type="password"
                         placeholder="••••••••"
                         value={signupData.confirmPassword}
-                        onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value })}
+                        onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value, role: signupData.role })}
                         className="pl-10"
                         disabled={isLoading}
                         required
