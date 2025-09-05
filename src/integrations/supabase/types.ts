@@ -68,6 +68,13 @@ export type Database = {
             foreignKeyName: "job_applications_job_id_fkey"
             columns: ["job_id"]
             isOneToOne: false
+            referencedRelation: "jobs_public_safe"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "job_applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
             referencedRelation: "public_jobs_view"
             referencedColumns: ["id"]
           },
@@ -270,6 +277,84 @@ export type Database = {
       }
     }
     Views: {
+      jobs_public_safe: {
+        Row: {
+          category: Database["public"]["Enums"]["job_category"] | null
+          city: string | null
+          commune: string | null
+          created_at: string | null
+          description: string | null
+          expires_at: string | null
+          id: string | null
+          is_active: boolean | null
+          is_featured: boolean | null
+          is_urgent: boolean | null
+          latitude: number | null
+          longitude: number | null
+          quartier: string | null
+          recruiter_id: string | null
+          salary_max: number | null
+          salary_min: number | null
+          title: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          category?: Database["public"]["Enums"]["job_category"] | null
+          city?: string | null
+          commune?: string | null
+          created_at?: string | null
+          description?: string | null
+          expires_at?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          is_urgent?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          quartier?: string | null
+          recruiter_id?: string | null
+          salary_max?: number | null
+          salary_min?: number | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          category?: Database["public"]["Enums"]["job_category"] | null
+          city?: string | null
+          commune?: string | null
+          created_at?: string | null
+          description?: string | null
+          expires_at?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          is_urgent?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          quartier?: string | null
+          recruiter_id?: string | null
+          salary_max?: number | null
+          salary_min?: number | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "jobs_recruiter_id_fkey"
+            columns: ["recruiter_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "jobs_recruiter_id_fkey"
+            columns: ["recruiter_id"]
+            isOneToOne: false
+            referencedRelation: "public_recruiter_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       public_jobs_view: {
         Row: {
           category: Database["public"]["Enums"]["job_category"] | null

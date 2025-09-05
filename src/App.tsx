@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Jobs from "./pages/Jobs";
 import AssistantIA from "./pages/AssistantIA";
+import Auth from "./pages/Auth";
 import Chatbot from "./pages/Chatbot";
 import Paystack from "./pages/Paystack";
 import NotFound from "./pages/NotFound";
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/assistant-ia" element={<AssistantIA />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/paystack" element={<Paystack />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
