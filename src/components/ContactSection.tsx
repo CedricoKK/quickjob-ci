@@ -5,16 +5,16 @@ import { Mail, Phone, MessageCircle, MapPin, Clock, Globe } from 'lucide-react';
 
 const ContactSection = () => {
   const handleEmail = () => {
-    window.location.href = 'mailto:contact@quickjob-ci.auroratech.be';
+    window.location.href = 'mailto:auroratech2222@gmail.com';
   };
 
   const handlePhone = () => {
-    window.location.href = 'tel:+2250000000000';
+    window.location.href = 'tel:+2250565868786';
   };
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Bonjour 👋, j'aimerais avoir plus d'informations sur QuickJob CI.");
-    window.open(`https://wa.me/+2250000000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/+2250565868786?text=${message}`, '_blank');
   };
 
   return (
@@ -44,7 +44,7 @@ const ContactSection = () => {
                   <Mail className="w-5 h-5 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">contact@quickjob-ci.auroratech.be</p>
+                    <p className="text-muted-foreground">auroratech2222@gmail.com</p>
                   </div>
                 </div>
                 
@@ -52,7 +52,7 @@ const ContactSection = () => {
                   <Phone className="w-5 h-5 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold text-foreground">Téléphone</h3>
-                    <p className="text-muted-foreground">+225 00 00 00 00 00</p>
+                    <p className="text-muted-foreground">+225 05 65 86 87 86 / 07 78 51 89 02</p>
                   </div>
                 </div>
                 
