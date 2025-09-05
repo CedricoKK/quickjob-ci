@@ -9,6 +9,7 @@ import AssistantIA from "./pages/AssistantIA";
 import Auth from "./pages/Auth";
 import Chatbot from "./pages/Chatbot";
 import Paystack from "./pages/Paystack";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/paystack" element={<Paystack />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      candidate_ratings: {
+        Row: {
+          candidate_id: string
+          comment: string | null
+          created_at: string | null
+          id: string
+          job_id: string
+          rating: number | null
+          recruiter_id: string
+        }
+        Insert: {
+          candidate_id: string
+          comment?: string | null
+          created_at?: string | null
+          id?: string
+          job_id: string
+          rating?: number | null
+          recruiter_id: string
+        }
+        Update: {
+          candidate_id?: string
+          comment?: string | null
+          created_at?: string | null
+          id?: string
+          job_id?: string
+          rating?: number | null
+          recruiter_id?: string
+        }
+        Relationships: []
+      }
       job_applications: {
         Row: {
           candidate_id: string
@@ -143,8 +173,39 @@ export type Database = {
           },
         ]
       }
+      notifications: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_read: boolean | null
+          message: string
+          title: string
+          type: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_read?: boolean | null
+          message: string
+          title: string
+          type?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          title?: string
+          type?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
+          availability_status: string | null
           avatar_url: string | null
           bio: string | null
           city: string | null
@@ -162,6 +223,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          availability_status?: string | null
           avatar_url?: string | null
           bio?: string | null
           city?: string | null
@@ -179,6 +241,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          availability_status?: string | null
           avatar_url?: string | null
           bio?: string | null
           city?: string | null
@@ -199,40 +262,55 @@ export type Database = {
       }
       subscriptions: {
         Row: {
+          annual_price: number | null
+          auto_renew: boolean | null
           created_at: string | null
           current_period_end: string | null
           current_period_start: string | null
+          expires_at: string | null
           id: string
           is_active: boolean | null
+          monthly_price: number | null
           paystack_customer_code: string | null
           paystack_subscription_code: string | null
           plan: Database["public"]["Enums"]["subscription_plan"]
+          stripe_customer_id: string | null
           trial_ends_at: string | null
           updated_at: string | null
           user_id: string
         }
         Insert: {
+          annual_price?: number | null
+          auto_renew?: boolean | null
           created_at?: string | null
           current_period_end?: string | null
           current_period_start?: string | null
+          expires_at?: string | null
           id?: string
           is_active?: boolean | null
+          monthly_price?: number | null
           paystack_customer_code?: string | null
           paystack_subscription_code?: string | null
           plan?: Database["public"]["Enums"]["subscription_plan"]
+          stripe_customer_id?: string | null
           trial_ends_at?: string | null
           updated_at?: string | null
           user_id: string
         }
         Update: {
+          annual_price?: number | null
+          auto_renew?: boolean | null
           created_at?: string | null
           current_period_end?: string | null
           current_period_start?: string | null
+          expires_at?: string | null
           id?: string
           is_active?: boolean | null
+          monthly_price?: number | null
           paystack_customer_code?: string | null
           paystack_subscription_code?: string | null
           plan?: Database["public"]["Enums"]["subscription_plan"]
+          stripe_customer_id?: string | null
           trial_ends_at?: string | null
           updated_at?: string | null
           user_id?: string
