@@ -48,7 +48,7 @@ export const LocationSelectors: React.FC<LocationSelectorsProps> = ({
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Sélectionnez votre ville" />
           </SelectTrigger>
-          <SelectContent className="bg-background border border-border shadow-lg z-50">
+          <SelectContent className="bg-background border border-border shadow-lg z-[9999] max-h-60 overflow-y-auto">
             {citiesData.map((city) => (
               <SelectItem key={city.name} value={city.name}>
                 {city.name}
@@ -69,7 +69,7 @@ export const LocationSelectors: React.FC<LocationSelectorsProps> = ({
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Sélectionnez votre commune" />
           </SelectTrigger>
-          <SelectContent className="bg-background border border-border shadow-lg z-50">
+          <SelectContent className="bg-background border border-border shadow-lg z-[9998] max-h-60 overflow-y-auto">
             {communes.map((commune) => (
               <SelectItem key={commune.name} value={commune.name}>
                 {commune.name}
@@ -90,7 +90,7 @@ export const LocationSelectors: React.FC<LocationSelectorsProps> = ({
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Sélectionnez votre quartier" />
           </SelectTrigger>
-          <SelectContent className="bg-background border border-border shadow-lg z-50">
+          <SelectContent className="bg-background border border-border shadow-lg z-[9997] max-h-60 overflow-y-auto">
             {quartiers.map((quartier) => (
               <SelectItem key={quartier.name} value={quartier.name}>
                 {quartier.name}
