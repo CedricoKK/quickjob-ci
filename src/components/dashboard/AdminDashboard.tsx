@@ -155,7 +155,7 @@ const AdminDashboard = ({ user }: AdminDashboardProps) => {
     try {
       const { error } = await supabase
         .from('profiles')
-        .update({ role: newRole })
+        .update({ role: newRole as 'candidate' | 'recruiter' | 'admin' })
         .eq('id', userId);
 
       if (error) throw error;

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { LocationSelectors } from '@/components/ui/location-selectors';
 import { ArrowLeft, Mail, Lock, User as UserIcon, Loader2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -30,6 +31,8 @@ const Auth = () => {
     phone: '',
     whatsapp: '',
     city: '',
+    commune: '',
+    quartier: '',
     role: 'candidate'
   });
 
@@ -154,6 +157,8 @@ const Auth = () => {
             phone: signupData.phone,
             whatsapp: signupData.whatsapp,
             city: signupData.city,
+            commune: signupData.commune,
+            quartier: signupData.quartier,
             role: signupData.role
           }
         }
@@ -190,6 +195,8 @@ const Auth = () => {
         phone: '',
         whatsapp: '',
         city: '',
+        commune: '',
+        quartier: '',
         role: 'candidate'
       });
 
@@ -355,19 +362,16 @@ const Auth = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="signup-city">Localisation</Label>
-                    <div className="relative">
-                      <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                      <Input
-                        id="signup-city"
-                        type="text"
-                        placeholder="Sélectionnez votre ville"
-                        value={signupData.city}
-                        onChange={(e) => setSignupData({ ...signupData, city: e.target.value })}
-                        className="pl-10"
-                        disabled={isLoading}
-                      />
-                    </div>
+                    <Label>Localisation</Label>
+                    <LocationSelectors
+                      selectedCity={signupData.city}
+                      selectedCommune={signupData.commune}
+                      selectedQuartier={signupData.quartier}
+                      onCityChange={(city) => setSignupData({ ...signupData, city, commune: '', quartier: '' })}
+                      onCommuneChange={(commune) => setSignupData({ ...signupData, commune, quartier: '' })}
+                      onQuartierChange={(quartier) => setSignupData({ ...signupData, quartier })}
+                      disabled={isLoading}
+                    />
                   </div>
                   
                   <div className="space-y-2">

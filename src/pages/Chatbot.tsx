@@ -18,7 +18,7 @@ const knowledgeBase = {
   "tarifs": "Gratuit pour candidats. Standard (1 500 FCFA/mois) : 10 annonces, accès CV. Pro (3 000 FCFA/mois) : annonces illimitées, mise en avant. Entreprise sur devis.",
   "paiement": "Tous les paiements se font via Paystack (Orange Money, MTN, Moov Money, cartes bancaires).",
   "villes": "QuickJob CI est disponible dans toutes les villes de Côte d'Ivoire : Abidjan, Bouaké, Yamoussoukro, San Pedro, Daloa, Korhogo, Man, Gagnoa, etc.",
-  "contact": "Vous pouvez nous contacter par WhatsApp (+225 05 65 86 87 86), email (auroratech2222@gmail.com) ou via le chatbot 24/7.",
+  "contact": "Vous pouvez nous contacter par WhatsApp (+2250565868786), email (auroratech2222@gmail.com) ou via le chatbot 24/7.",
   "recruteur": "Les recruteurs doivent créer un compte, choisir un plan d'abonnement (Standard, Pro ou Entreprise), puis publier leurs annonces.",
   "sécurité": "Toutes vos données sont sécurisées avec Supabase et des politiques RLS. QuickJob CI ne partage jamais vos données sans accord."
 };
@@ -66,7 +66,7 @@ const Chatbot = () => {
       return "QuickJob CI c'est : ✅ Inscription gratuite pour candidats ✅ Contact direct WhatsApp ✅ Géolocalisation par quartier ✅ Paiement mobile money ✅ Support 7j/7";
     }
 
-    return "Je n'ai pas trouvé d'information spécifique à votre question. Contactez notre support WhatsApp au +225 05 65 86 87 86 pour une aide personnalisée, ou posez une question sur nos tarifs, l'inscription, les villes couvertes, etc.";
+    return "Je n'ai pas trouvé d'information spécifique à votre question. Contactez notre support WhatsApp au +2250565868786 pour une aide personnalisée, ou posez une question sur nos tarifs, l'inscription, les villes couvertes, etc.";
   };
 
   const sendMessage = async () => {

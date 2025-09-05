@@ -52,7 +52,7 @@ const ContactSection = () => {
                   <Phone className="w-5 h-5 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold text-foreground">Téléphone</h3>
-                    <p className="text-muted-foreground">+225 05 65 86 87 86 / 07 78 51 89 02</p>
+                    <p className="text-muted-foreground">+2250565868786</p>
                   </div>
                 </div>
                 

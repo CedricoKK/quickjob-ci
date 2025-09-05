@@ -417,7 +417,7 @@ const RecruiterDashboard = ({ user }: RecruiterDashboardProps) => {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <span>Plan actuel :</span>
-                      <Badge variant={isSubscriptionValid() ? "success" : "destructive"}>
+                      <Badge variant={isSubscriptionValid() ? "default" : "destructive"}>
                         {subscription.plan.toUpperCase()}
                       </Badge>
                     </div>
