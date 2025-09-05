@@ -36,11 +36,21 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button variant="hero" size="xl" className="min-w-[200px]">
+            <Button 
+              variant="hero" 
+              size="xl" 
+              className="min-w-[200px]"
+              onClick={() => window.location.href = '/jobs'}
+            >
               <Search className="mr-2 h-5 w-5" />
               Chercher un emploi
             </Button>
-            <Button variant="premium" size="xl" className="min-w-[200px]">
+            <Button 
+              variant="premium" 
+              size="xl" 
+              className="min-w-[200px]"
+              onClick={() => window.location.href = '/paystack'}
+            >
               <Users className="mr-2 h-5 w-5" />
               Recruter maintenant
             </Button>

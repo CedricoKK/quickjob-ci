@@ -7,17 +7,15 @@ const FloatingChatBubbles = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Bonjour 👋, comment puis-je vous aider ?");
-    window.open(`https://wa.me/+2250000000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/+2250565868786?text=${message}`, '_blank');
   };
 
   const handleOpenAI = () => {
-    // Placeholder for OpenAI integration
-    console.log('OpenAI Chat integration à implémenter');
+    window.open('/assistant-ia', '_blank');
   };
 
   const handleChatbot = () => {
-    // Placeholder for RAG Chatbot integration
-    console.log('Chatbot RAG integration à implémenter');
+    window.open('/chatbot', '_blank');
   };
 
   return (

@@ -69,10 +69,10 @@ const PricingSection = () => {
   const handleSubscribe = (planName: string) => {
     if (planName === "Gratuit") {
       // Redirect to signup
-      console.log('Redirection vers inscription gratuite');
+      window.location.href = '/jobs';
     } else {
       // Redirect to Paystack payment
-      console.log(`Redirection vers paiement Paystack pour plan ${planName}`);
+      window.location.href = '/paystack';
     }
   };
 
