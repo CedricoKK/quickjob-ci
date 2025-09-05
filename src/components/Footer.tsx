@@ -25,16 +25,16 @@ const Footer = () => {
               La première plateforme ivoirienne pour trouver rapidement un petit boulot ou recruter des talents locaux.
             </p>
             <div className="flex gap-3">
-              <Button variant="ghost" size="icon" className="w-8 h-8">
+              <Button variant="ghost" size="icon" className="w-8 h-8" aria-label="Suivez-nous sur Facebook">
                 <Facebook className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="icon" className="w-8 h-8">
+              <Button variant="ghost" size="icon" className="w-8 h-8" aria-label="Suivez-nous sur Twitter">
                 <Twitter className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="icon" className="w-8 h-8">
+              <Button variant="ghost" size="icon" className="w-8 h-8" aria-label="Suivez-nous sur Instagram">
                 <Instagram className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="icon" className="w-8 h-8">
+              <Button variant="ghost" size="icon" className="w-8 h-8" aria-label="Suivez-nous sur LinkedIn">
                 <Linkedin className="w-4 h-4" />
               </Button>
             </div>
