@@ -85,14 +85,14 @@ const jobs = [
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [locationFilter, setLocationFilter] = useState('');
-  const [typeFilter, setTypeFilter] = useState('');
+  const [locationFilter, setLocationFilter] = useState('all');
+  const [typeFilter, setTypeFilter] = useState('all');
 
   const filteredJobs = jobs.filter(job => {
     const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          job.company.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesLocation = !locationFilter || job.location.includes(locationFilter);
-    const matchesType = !typeFilter || job.type === typeFilter;
+    const matchesLocation = locationFilter === 'all' || job.location.includes(locationFilter);
+    const matchesType = typeFilter === 'all' || job.type === typeFilter;
     
     return matchesSearch && matchesLocation && matchesType;
   });
@@ -135,7 +135,7 @@ const Jobs = () => {
                 <SelectValue placeholder="Toutes les villes" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Toutes les villes</SelectItem>
+                <SelectItem value="all">Toutes les villes</SelectItem>
                 <SelectItem value="Abidjan">Abidjan</SelectItem>
                 <SelectItem value="Bouaké">Bouaké</SelectItem>
                 <SelectItem value="Yamoussoukro">Yamoussoukro</SelectItem>
@@ -148,7 +148,7 @@ const Jobs = () => {
                 <SelectValue placeholder="Type de contrat" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Tous les types</SelectItem>
+                <SelectItem value="all">Tous les types</SelectItem>
                 <SelectItem value="Temps plein">Temps plein</SelectItem>
                 <SelectItem value="Temps partiel">Temps partiel</SelectItem>
               </SelectContent>
