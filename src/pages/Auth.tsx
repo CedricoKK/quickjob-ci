@@ -43,7 +43,7 @@ const Auth = () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUser(user);
-        navigate('/', { replace: true });
+        navigate('/dashboard', { replace: true });
       }
     };
     
@@ -52,7 +52,7 @@ const Auth = () => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (session?.user) {
         setUser(session.user);
-        navigate('/', { replace: true });
+        navigate('/dashboard', { replace: true });
       }
     });
 
@@ -100,6 +100,8 @@ const Auth = () => {
         title: "Connexion réussie",
         description: "Vous êtes maintenant connecté",
       });
+
+      navigate('/dashboard', { replace: true });
 
     } catch (error) {
       console.error('Login error:', error);

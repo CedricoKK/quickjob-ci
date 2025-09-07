@@ -36,15 +36,15 @@ const Dashboard = () => {
 
         if (profileError || !profile) {
           console.error('Error fetching profile:', profileError);
-          toast({
-            title: "Erreur",
-            description: "Impossible de récupérer votre profil",
-            variant: "destructive",
-          });
-          return;
+          const metaRole = (user.user_metadata as any)?.role;
+          if (metaRole === 'admin' || metaRole === 'recruiter' || metaRole === 'candidate') {
+            setUserRole(metaRole);
+          } else {
+            setUserRole('candidate');
+          }
+        } else {
+          setUserRole(profile.role);
         }
-
-        setUserRole(profile.role);
       } catch (error) {
         console.error('Auth check error:', error);
         navigate('/auth');
