@@ -14,7 +14,248 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      job_applications: {
+        Row: {
+          applied_at: string
+          candidate_id: string
+          cover_letter: string | null
+          id: string
+          job_id: string
+          notes: string | null
+          reviewed_at: string | null
+          status: string
+        }
+        Insert: {
+          applied_at?: string
+          candidate_id: string
+          cover_letter?: string | null
+          id?: string
+          job_id: string
+          notes?: string | null
+          reviewed_at?: string | null
+          status?: string
+        }
+        Update: {
+          applied_at?: string
+          candidate_id?: string
+          cover_letter?: string | null
+          id?: string
+          job_id?: string
+          notes?: string | null
+          reviewed_at?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "job_applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      jobs: {
+        Row: {
+          city: string
+          commune: string | null
+          company_name: string | null
+          contact_info: Json | null
+          created_at: string
+          description: string
+          experience_level: string | null
+          expires_at: string | null
+          id: string
+          is_featured: boolean | null
+          job_type: string
+          quartier: string | null
+          recruiter_id: string
+          requirements: string[] | null
+          salary_max: number | null
+          salary_min: number | null
+          skills_required: string[] | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          city: string
+          commune?: string | null
+          company_name?: string | null
+          contact_info?: Json | null
+          created_at?: string
+          description: string
+          experience_level?: string | null
+          expires_at?: string | null
+          id?: string
+          is_featured?: boolean | null
+          job_type: string
+          quartier?: string | null
+          recruiter_id: string
+          requirements?: string[] | null
+          salary_max?: number | null
+          salary_min?: number | null
+          skills_required?: string[] | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string
+          commune?: string | null
+          company_name?: string | null
+          contact_info?: Json | null
+          created_at?: string
+          description?: string
+          experience_level?: string | null
+          expires_at?: string | null
+          id?: string
+          is_featured?: boolean | null
+          job_type?: string
+          quartier?: string | null
+          recruiter_id?: string
+          requirements?: string[] | null
+          salary_max?: number | null
+          salary_min?: number | null
+          skills_required?: string[] | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      notifications: {
+        Row: {
+          created_at: string
+          data: Json | null
+          id: string
+          is_read: boolean | null
+          message: string
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json | null
+          id?: string
+          is_read?: boolean | null
+          message: string
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json | null
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          availability_status: string | null
+          avatar_url: string | null
+          bio: string | null
+          city: string | null
+          commune: string | null
+          created_at: string
+          email: string | null
+          experience_level: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          quartier: string | null
+          role: string
+          skills: string[] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          availability_status?: string | null
+          avatar_url?: string | null
+          bio?: string | null
+          city?: string | null
+          commune?: string | null
+          created_at?: string
+          email?: string | null
+          experience_level?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          quartier?: string | null
+          role?: string
+          skills?: string[] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          availability_status?: string | null
+          avatar_url?: string | null
+          bio?: string | null
+          city?: string | null
+          commune?: string | null
+          created_at?: string
+          email?: string | null
+          experience_level?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          quartier?: string | null
+          role?: string
+          skills?: string[] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      subscriptions: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          ends_at: string
+          id: string
+          payment_method: string | null
+          plan_type: string
+          starts_at: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string
+          ends_at: string
+          id?: string
+          payment_method?: string | null
+          plan_type: string
+          starts_at?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          ends_at?: string
+          id?: string
+          payment_method?: string | null
+          plan_type?: string
+          starts_at?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
